@@ -81,5 +81,5 @@
 - Better error handling && System Design
 
 ### Author ###
-- SnehaMay Hembram
+- Snehamay Hembram
 
