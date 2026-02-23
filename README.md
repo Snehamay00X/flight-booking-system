@@ -1,89 +1,115 @@
-### ** Flight Search & Booking System (MERN Stack)** ###
+# Flight Search & Booking System
 
-#### Features ####
+A full-stack flight search and booking app with the flow:
+**search → selection → traveller details → booking creation**.
 
- Flight Search
-	•	Filter by source & destination
-	•	One-way & round-trip support
-	•	Passenger count validation
-	•	Price range validation
-	•	Unique searchId generated per search
+## Features
 
- Flight Selection
-	•	Select fare for one-way or round-trip
-	•	Validates flightKey & fareId
-	•	Stores:
-	•	Full flight JSON
-	•	Selected fare
-	•	Search ID
+### Flight Search
+- Filter by source & destination
+- One-way & round-trip support
+- Passenger count validation
+- Price range validation
+- Unique `searchId` generated per search
 
- Traveller Details
-	•	Dynamic passenger form based on passenger count
-	•	Collects:
-                1. First Name
-                2. Last Name
-                3. Email
-                4. Phone
-                5. DOB
-                6. Gender
-                7. Passport (optional)
+### Flight Selection
+- Select fare for one-way or round-trip
+- Validates `flightKey` & `fareId`
+- Stores:
+  - Full flight JSON
+  - Selected fare
+  - `searchId`
 
-	•	Resume booking feature:
-	            1. If user leaves after selection, they can return and continue
-	            2. Uses searchId stored in localStorage
+### Traveller Details
+- Dynamic passenger form based on passenger count
+- Collects:
+  - First name, last name
+  - Email, phone
+  - DOB, gender
+  - Passport (optional)
+- Resume booking:
+  - If the user leaves after selection, they can return and continue
+  - Uses `searchId` stored in localStorage
 
- Booking Creation
-	•	Attaches traveller details
-	•	Locks selected price
-	•	Generates bookingId
-	•	Saves final booking in MongoDB
+### Booking Creation
+- Attaches traveller details
+- Locks selected price
+- Generates `bookingId`
+- Saves final booking in MongoDB
 
-
-#### Tech Stack ####
-- Frontend: React
-- Backend: Node.js (express.js)
+## Tech Stack
+- Frontend: Next.js (React)
+- Backend: Node.js + Express
 - Database: MongoDB
-- ORM: Mongoose
+- ODM: Mongoose
 - Language: TypeScript
 
-#### Setup ####
-1. Clone the repository
-2. ##Backend##
-    - Run `npm install or npm i` in backend directory
-    - Create a .env file in backend directory
-    - Add the following variables to the .env file:
-        - MONGODB_URI = your_mongodb_connection_string_here ####
-        - PORT = 8000
-    - Run `npm run dev` in backend directory
-	- it will start the server at `http://localhost:8000`
-	
-3. ##Frontend##
-    - Run `npm install or npm i` in frontend directory
-    - Run `npm run dev` in frontend directory
-	- it will start the server at `http://localhost:3000`
+## Project Structure
+- `frontend/` — Next.js app
+- `backend/` — Express API
 
-### Usage ###
-- Open `http://localhost:3000` in your browser
-- Search for flights using the dropdown menu
-- Select a flight from the list of flights
-- Enter passenger details
-- Click on "Book" button
-- Booking will be created and saved in the database
+## Prerequisites
+- Node.js (LTS recommended)
+- npm
+- MongoDB (local or Atlas)
 
-### API Endpoints ###
-- GET /api/flight/filters - Get flight filters
-- POST /api/flight/search - Search for flights
-- POST /api/flight/select - Select a flight
-- POST /api/flight/book - Book a flight
+## Setup & Run (Development)
 
-### DB Schema ###
-- Flight - Stores flight information
-- Booking - Stores booking information
+### 1) Clone
+```bash
+git clone <your-repo-url>
+cd flight-booking-system
+```
 
-### Improvements ###
+### 2) Backend
+```bash
+cd backend
+npm install
+```
+
+Create `backend/.env`:
+```env
+MONGODB_URI=your_mongodb_connection_string_here
+PORT=8000
+```
+
+Run:
+```bash
+npm run dev
+```
+
+Backend runs at `http://localhost:8000`.
+
+### 3) Frontend
+```bash
+cd ../frontend
+npm install
+npm run dev
+```
+
+Frontend runs at `http://localhost:3000`.
+
+## Usage
+1. Open `http://localhost:3000`
+2. Search for flights
+3. Select a flight/fare
+4. Enter traveller details
+5. Confirm booking
+
+## API Endpoints
+- `GET /api/flight/filters` — Get flight filters
+- `POST /api/flight/search` — Search for flights
+- `POST /api/flight/select` — Select a flight
+- `POST /api/flight/book` — Book a flight
+
+## Database Schema (High Level)
+- Flight — stores flight info
+- Booking — stores booking info
+
+## Improvements / TODO
 - Improve UI/UX
-- Better error handling && System Design
+- Better error handling
+- System design / scalability
 
-### Author ###
+## Author
 - Snehamay Hembram
-
