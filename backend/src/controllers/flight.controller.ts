@@ -63,7 +63,7 @@ export const searchedFlights = asyncHandler(async (req, res) => {
     stops
   } = req.body;
 
-  // ------------------ VALIDATION ------------------
+  //  VALIDATION 
 
   if (!sourceCity || !destinationCity) {
     throw new Error("Source and Destination are mandatory");
@@ -97,7 +97,7 @@ export const searchedFlights = asyncHandler(async (req, res) => {
   const normalizedStops =
     stops !== undefined && stops !== "" ? Number(stops) : undefined;
 
-  // ------------------ FILTERING ------------------
+  // /////FILTERING 
 
   flights.forEach((flight) => {
     if (!flight?.flights || !Array.isArray(flight.fares)) return;
@@ -166,7 +166,7 @@ export const searchedFlights = asyncHandler(async (req, res) => {
     }
   });
 
-  // ------------------ ONE WAY ------------------
+  // ONE WAY 
 
   if (tripType !== "round-trip") {
     return res.json({
@@ -179,7 +179,7 @@ export const searchedFlights = asyncHandler(async (req, res) => {
     });
   }
 
-  // ------------------ ROUND TRIP ------------------
+  //  ROUND TRIP 
 
   const combined: any[] = [];
 
