@@ -28,6 +28,10 @@
                 6. Gender
                 7. Passport (optional)
 
+	•	Resume booking feature:
+	            1. If user leaves after selection, they can return and continue
+	            2. Uses searchId stored in localStorage
+
  Booking Creation
 	•	Attaches traveller details
 	•	Locks selected price
